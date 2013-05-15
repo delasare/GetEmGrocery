@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>TopActivityIndicator</key>
+	<string>black</string>
+	<key>EnableLocation</key>
+	<false/>
+	<key>EnableViewportScale</key>
+	<false/>
+	<key>AutoHideSplashScreen</key>
+	<true/>
+	<key>ShowSplashScreenSpinner</key>
+	<true/>
+	<key>MediaPlaybackRequiresUserAction</key>
+	<false/>
+	<key>AllowInlineMediaPlayback</key>
+	<true/>
+	<key>OpenAllWhitelistURLsInWebView</key>
+	<false/>
+	<key>ExternalHosts</key>
+	<array>
+		<string>*</string>
+		<string>http://thewaytohisheart.wordpress.com/2011/09/30/mexican-stuffed-shells/</string>
+	</array>
+	<key>Plugins</key>
+	<dict>
+		<key>ChildBrowserCommand</key>
+		<string>ChildBrowserCommand</string>
+		<key>ChildBrowser</key>
+		<string>ChildBrowser.js</string>
+		<key>com.phonegap.emailComposer</key>
+		<string>EmailComposer</string>
+		<key>com.phonegap.barcodeScanner</key>
+		<string>PGBarcodeScanner</string>
+		<key>com.phonegap.camera</key>
+		<string>PGCamera</string>
+		<key>com.phonegap.connection</key>
+		<string>PGConnection</string>
+		<key>com.phonegap.contacts</key>
+		<string>PGContacts</string>
+		<key>com.phonegap.debugconsole</key>
+		<string>PGDebugConsole</string>
+		<key>com.phonegap.notification</key>
+		<string>PGNotification</string>
+		<key>com.phonegap.media</key>
+		<string>PGSound</string>
+		<key>com.phonegap.splashscreen</key>
+		<string>PGSplashScreen</string>
+		<key>com.phonegap.battery</key>
+		<string>PGBattery</string>
+	</dict>
+</dict>
+</plist>

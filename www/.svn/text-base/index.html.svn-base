@@ -1,0 +1,271 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+<meta charset="utf-8">
+<title>Get 'Em Grocery</title>
+<link rel="stylesheet" href="css/jqtouch.css" title="jQTouch" />
+<link rel="stylesheet" href="css/getem.css" title="jQTouch" />
+
+<script type="text/javascript" charset="utf-8" src="js/phonegap-1.4.1.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/barcodescanner.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/EmailComposer.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/ChildBrowser.js"></script>
+    
+<script src="js/jquery-1.7.min.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="js/jqtouch-jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/jqtouch.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/underscore-min.js" type="text/javascript" charset="utf-8"></script>	
+<script src="js/iscroll-lite.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/getem-interface.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8" src="js/getem.js"></script>
+<!-- iPad/iPhone specific css below, add after your main css >
+<link rel="stylesheet" media="only screen and (max-device-width: 1024px)" href="ipad.css" type="text/css" />		
+<link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="iphone.css" type="text/css" />		
+ -->
+<!-- If your application is targeting iOS BEFORE 4.0 you MUST put json2.js from http://www.JSON.org/json2.js into your www directory and include it here -->
+
+<script id="tmpl-recipe" type="text/template" >
+	<ul>
+	<% for (var i = 0; i < recipe.ingredients.length; i++) {%>
+		<% var ingredient = recipe.ingredients[i]; %>
+		<% if (ingredient.solved == true || ingredient.protein == "true") { %>
+			<li class="clueItem solved">
+				<span class="amount"><%= ingredient.quantity %></span>
+				<span class="food"><%= ingredient.name %></span>
+			</li>
+		<% } else { %>
+			<li class="clueItem unsolved">
+				<span class="amount"><%= ingredient.quantity %></span>
+			    <img src="img/btn_clue.png" class="clueBtn btn" id="clue<%= i %>" />	
+            </li>
+		<% } %>
+	<% } %>
+	</ul>
+</script>
+<script id="tmpl-recipe-complete" type="text/template" >
+    <ul>
+    <% for (var i = 0; i < recipe.ingredients.length; i++) {%>
+        <% var ingredient = recipe.ingredients[i]; %>
+        <li class="clueItem solved">
+        <span class="amount"><%= ingredient.quantity %></span>
+        <span class="food"><%= ingredient.name %></span>
+		
+        </li>
+    <% } %>
+    </ul>
+</script>
+
+    <script type="text/javascript">
+            
+            
+            // If you want to prevent dragging, uncomment this section
+            
+             function preventBehavior(e) 
+             { 
+             e.preventDefault(); 
+             };
+             document.addEventListener("touchmove", preventBehavior, false);
+             
+            
+            /* If you are supporting your own protocol, the var invokeString will contain any arguments to the app launch.
+             see http://iphonedevelopertips.com/cocoa/launching-your-own-application-via-a-custom-url-scheme.html
+             for more details -jm */
+            /*
+             function handleOpenURL(url)
+             {
+             // TODO: do something with the url passed in.
+             }
+             */
+            
+            function onBodyLoad()
+            {		
+                document.addEventListener("deviceready", onDeviceReady, false);
+            }
+            
+            /* When this function is called, PhoneGap has been initialized and is ready to roll */
+            /* If you are supporting your own protocol, the var invokeString will contain any arguments to the app launch.
+             see http://iphonedevelopertips.com/cocoa/launching-your-own-application-via-a-custom-url-scheme.html
+             for more details -jm */
+            function onDeviceReady()
+            {
+                // do your thing!
+               /* var cb = ChildBrowser.install();
+                if(cb != null)
+                {
+                    cb.onLocationChange = function(loc){ root.locChanged(loc); };
+                    cb.onClose = function(){root.onCloseBrowser()};
+                    cb.onOpenExternal = function(){root.onOpenExternal();};
+                    
+                    window.plugins.childBrowser.showWebPage("http://google.com");
+                    
+                }*/
+                //navigator.notification.alert("PhoneGap is working")
+            }
+        
+        function openBrowser(link)
+        {
+            var cb = ChildBrowser.install();
+            if(cb != null)
+            {
+               window.plugins.childBrowser.showWebPage(link);
+            } 
+           
+        
+        }
+</script>
+    
+<script type="text/javascript" charset="utf-8">
+	var jQT = $.jQTouch({
+		backSelector: '.backBtn',
+        preloadImages: []
+    	});
+</script>
+
+
+
+</head>
+
+<body onload="onBodyLoad()">
+<div id="jqt">
+	<div id="title" class="current screen"> <!--------------------------- WELCOME SCREEN -->
+     	<img src="img/btn_playGG.png" width="192" height="60" id="titleGoBtn" class="btn"  />
+    </div>
+ 	<div id="welcome" class="screen"> <!--------------------------- WELCOME SCREEN -->
+        <img src="img/btn_getem.png" width="188" height="98" id="playBtn" class="btn" />
+    </div>
+    <div id="selectReward" class="screen"> <!------------------------------ SELECT REWARD SCREEN -->
+       	<img src="img/btn_donate.png"  width="150" height="200" id="donateBtn" class="btn"  />
+       	<img src="img/btn_coupon.png"  width="150" height="200" id="couponBtn" class="btn"  />
+        <div class="disclaimer">*At participating stores only</div>
+    </div>
+    <div id="selectProtein" class="screen"> <!----------------------------- SELECT PROTEIN SCREEN -->
+        <img src="img/btn_meat.png"  width="150" height="180" id="meatBtn" class="btn"  />
+        <img src="img/btn_veggie.png"  width="150" height="180" id="veggieBtn" class="btn"  />
+    </div>
+    <div id="directions" class="screen"> <!-------------------------------- DIRECTIONS SCREEN -->
+        <img src="img/btn_getem.png" width="188" height="98" id="startBtn" class="btn"  />
+    </div>
+     <div id="recipe" class="screen"> <!----------------------------------- RECIPE SCREEN -->
+     <div id="scrollWrapper">
+       <div>
+       		 <img src="img/title_recipe.png" width="123" height="38" class="headerTitle" /><br />
+             <img src="img/subHeader_ingredients.png" width="154" height="28" class="subheaderTitle" />
+             <div id="recipeList">
+                  <ul>
+                    <!--<li class="clueItem unsolved">
+                        <span class="amount">1 cup</span> 
+                        <a href="#clue" class="clueBtn" id="clue1"><img src="img/btn_clue.png" /></a>
+                    </li>
+                    <li class="clueItem unsolved">
+                        <span class="amount">1/2 tsp</span> 
+                        <a href="#clue" class="clueBtn" id="clue2"><img src="img/btn_clue.png" /></a>
+                    </li>
+                    <li class="clueItem solved">
+                        <span class="amount">2 cans</span> 
+                        <span class="food">Monteray Jack Cheese</span>
+                    </li>
+                    <li class="clueItem solved">
+                        <span class="amount">10 oz</span>
+                        <span class="food">Cheddar Cheese</span>
+                    </li>-->
+                  </ul>
+              </div>
+              <img src="img/subHeader_directions.png" width="142" height="28" class="subheaderTitle" />
+              <div id="directionsHidden">Find all ingredients to reveal reward and directions</div>
+         </div>
+          
+     </div>
+    </div>
+    <div id="clue" class="screen"> <!-------------------------------------- CLUE SCREEN -->
+	  <div id="clueArea"><div id="centerClues"><img id="clueImage" src="img/clue_placeholder.png"></div></div>
+      <img src="img/btn_notNow.png" width="142" height="75" id="notNowBtn" class="btn" />
+      <img src="img/btn_solve.png" width="145" height="75" id="solveBtn" class="btn" />
+      
+    </div>
+    <div id="selectSolve" class="screen"> <!------------------------------- SOLVE SCREEN -->
+       <img src="img/btn_scan.png" width="145" height="123" id="solveScanBtn" class="btn"  />
+	   <img src="img/btn_plu.png" width="145" height="123" id="solvePluBtn" class="btn"  />
+	   <img src="img/btn_cancel.png" width="146" height="79" id="solveCancelBtn" class="btn"  />
+    </div>
+  	  <div id="solvePlu" class="screen"> <!---------------------------------- PLU SOLVE SCREEN -->
+          <div id="pluField"></div>
+           <div id="pluBtns">
+           <img src="img/btn_plu1.png" class="pluNumBtn btn" id="plu-1" />
+           <img src="img/btn_plu2.png" class="pluNumBtn btn" id="plu-2" />
+           <img src="img/btn_plu3.png" class="pluNumBtn btn" id="plu-3" />
+           <img src="img/btn_plu4.png" class="pluNumBtn btn" id="plu-4" />
+           <img src="img/btn_plu5.png" class="pluNumBtn btn" id="plu-5" />
+           <img src="img/btn_plu6.png" class="pluNumBtn btn" id="plu-6" />
+           <img src="img/btn_plu7.png" class="pluNumBtn btn" id="plu-7" />
+           <img src="img/btn_plu8.png" class="pluNumBtn btn" id="plu-8" />
+           <img src="img/btn_plu9.png" class="pluNumBtn btn" id="plu-9" />
+		   <img src="img/btn_pluInfo.png" id="pluInfoBtn" class="btn"  />
+           <img src="img/btn_plu0.png" class="pluNumBtn btn" id="plu-0" />
+           <img src="img/btn_pluDelete.png" id="pluDeleteBtn" class="btn"  />
+       </div>
+       <img src="img/btn_pluCancel.png" width="142" height="75" id="pluCancelBtn" class="btn"  /> 
+       <img src="img/btn_pluEnter.png" width="145" height="75" id="pluEnterBtn" class="btn"  />
+       
+    </div>
+     <div id="pluInfo" class="screen"> <!---------------------------------- PLU SOLVE SCREEN -->
+          <img src="img/btn_back.png" width="146" height="79" id="infoBackBtn" class="btn" />
+     </div>
+     <div id="clueSuccess" class="screen"> <!------------------------------ CLUE SUCCESS SCREEN -->
+       <div id="clueFeedback"></div>
+       <img src="img/btn_cartIt.png" width="185" height="97"  id="cartItBtn" class="btn" />
+    </div>
+    <div id="clueFail" class="screen"> <!---------------------------------- CLUE FAIL SCREEN -->
+       <img src="img/btn_getHint.png" width="185" height="97" id="getHintBtn" class="btn" />
+    </div>
+    <div id="reward" class="screen"> <!------------------------------------ REWARD SCREEN -->
+       <div id="successMsg">You Found <br /><span id="recipeName">Mexican Stuffed Shells</span></div>
+       <img src="img/btn_redeemNow.png" width="150" height="210" id="redeemNowBtn" class="btn" />
+       <img src="img/btn_viewRecipe.png"  width="150" height="210" id="viewRecipeBtn" class="btn" />
+    </div>
+    <div id="fullRecipe" class="screen"> <!------------------------------------ FULL RECIPE SCREEN -->
+    	<div id="recipeScrollWrapper">
+            <div>
+            <img src="img/btn_emailRecipe.png"  width="120" height="123" id="emailBtn" class="btn" />
+            <img src="img/btn_redeemSq.png"  width="120" height="123" id="redeem2Btn" class="btn" /><br />
+			<img src="img/title_recipe.png" width="123" height="38" id="title_recipe" class="headerTitle" /><br />
+			<div id="fullRecipeTitle"></div>
+            <img src="img/subHeader_ingredients.png" width="154" height="28" class="subheaderTitle" />
+            <div id="fullRecipeList"></div>
+			<img src="img/subHeader_directions.png" width="142" height="28" class="subheaderTitle" />
+            <div id="fullRecipeTxt">
+            	Add full recipe here.
+            </div>
+            <div id="fullRecipeCredit"></div>
+		</div>
+        </div>
+    </div>
+    <div id="email" class="screen"> <!------------------------------------ EMAIL SCREEN -->
+      <form>
+      	<input type="text" id="emailAddrs" />
+      </form>
+       <img src="img/btn_emailCancel.png" width="125" height="75" id="cancelEmailBtn" class="btn" /></a>
+      <img src="img/btn_sendEmail.png" width="125" height="75" id="submitEmail" class="btn" />
+    </div>
+    <div id="redeem" class="screen"> <!------------------------------------ REDEEM SCREEN -->
+    	
+        <img src="" id="redeemIcon" width="159" height="184" />
+        <div id="cashierMsg">Cashier press here when redeemed</div>
+		<img src="img/btn_redeemFinal.png" width="145" height="85" id="redeemNow2Btn" class="redeemStep1 btn" />
+        <img src="img/btn_cancel.png" width="183" height="99" class="redeemStep1 btn" id="redeemLaterBtn" />
+         <div class="disclaimer">*At participating stores only</div>
+        
+        
+        <!--
+		 <div id="redeemCode" style="display:none">935873</div>
+		 <a href="#fullRecipe"><img src="img/btn_redeemDone.png" width="145" height="85" id="redeemDoneBtn" class="redeemStep2" /></a>-->
+    </div>
+    
+    
+    
+</div> <!-- /jqt -->
+
+</body>
+</html>

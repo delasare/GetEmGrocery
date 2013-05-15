@@ -1,0 +1,447 @@
+/* CSS Document */
+
+@font-face {
+    font-family: "postino";
+    src: url(PostinoStd.otf);
+}
+
+@font-face { 
+	font-family: "domCasual";
+    src: url(DomCasualStd.otf);
+	}
+
+body {
+    font-family: "postino";
+	height:800px;
+}
+
+#jqt > * {
+	background-color:#86CB87;
+	background-image:none;
+	}
+
+
+div.screen {
+	background-repeat:no-repeat;
+	background-position:top left;
+	-webkit-background-size: 320px 480px;
+}
+
+#title { background-image:url(../img/gg_title.png); }
+#welcome { background-image:url(../img/gg_welcome.png); }
+#selectReward {background-image:url(../img/gg_chooseReward.png); }
+#selectProtein {background-image:url(../img/gg_chooseProtein.png); }
+#directions {background-image:url(../img/gg_directions.png); }
+#recipe {background-image:url(../img/gg_ingredients.png); }
+#clue {background-image:url(../img/gg_clue.png); }
+#selectSolve {background-image:url(../img/gg_chooseSolve.png); }
+#solveScan {background-image:url(../img/gg_scan.png); }
+#solvePlu {background-image:url(../img/gg_plu.png); }
+#pluInfo {background-image:url(../img/gg_pluInfo.png);}
+#clueSuccess {background-image:url(../img/gg_correct.png); }
+#clueFail {background-image:url(../img/gg_tryAgain.png);}
+#reward {background-image:url(../img/gg_complete.png);}
+#fullRecipe {background-image:url(../img/gg_ingredients.png);}
+#email {background-image:url(../img/gg_email.png);}
+#redeem {background-image:url(../img/gg_redeem.png);}
+/*
+
+/*#welcome { background-image:url(../img/gg_welcome_2.png); }
+#selectReward {background-image:url(../img/gg_chooseReward_2.png); }
+#selectProtein {background-image:url(../img/gg_chooseProtein_2.png); }
+#directions {background-image:url(../img/gg_directions_2.png); }
+#recipe {background-image:url(../img/gg_ingredients_2.png); }
+#clue {background-image:url(../img/gg_clue_2.png); }
+#selectSolve {background-image:url(../img/gg_chooseSolve_2.png); }
+#solveScan {background-image:url(../img/gg_scan_2.png); }
+#solvePlu {background-image:url(../img/gg_plu_2.png); }
+#clueSuccess {background-image:url(../img/gg_correct_2.png); }
+#clueFail {background-image:url(../img/gg_tryAgain_2.png);}
+#reward {background-image:url(../img/gg_complete_2.png);}
+#fullRecipe {background-image:url(../img/gg_ingredients_2.png);}
+#email {background-image:url(../img/gg_email_2.png);}
+#redeem {background-image:url(../img/gg_redeem_2.png);}*/
+
+#titleGoBtn {
+	position:absolute;
+	top:365px;
+	left: 68px;
+	}
+
+#playBtn {
+	position:absolute;
+	top:270px;
+	left: 60px;
+	background-image:url(../img/down_getem.png);
+	-webkit-background-size: 188px 98px;
+	background-repeat:no-repeat;
+	}
+
+#donateBtn {
+	position:absolute;
+	top:140px;
+	left: 5px;
+	}
+
+#couponBtn {
+	position:absolute;
+	top:140px;
+	left: 162px;
+	}
+
+#meatBtn {
+	position:absolute;
+	top:150px;
+	left: 5px;
+	}
+
+#veggieBtn {
+	position:absolute;
+	top:150px;
+	left: 162px;
+	}
+
+#infoBackBtn,
+#startBtn {
+	position:absolute;
+	top:360px;
+	left: 60px;
+	}
+
+
+#notNowBtn {
+	position:absolute;
+	top:390px;
+	left: 12px;
+	}
+
+#solveBtn {
+	position:absolute;
+	top:390px;
+	left: 165px;
+	}
+
+#solveScanBtn {
+	position:absolute;
+	top: 150px;
+	left: 10px;
+	}	
+
+#solvePluBtn {
+	position:absolute;
+	top: 150px;
+	left: 160px;
+	}	
+
+#solveCancelBtn,
+#scanCancelBtn {
+	position:absolute;
+	top: 390px;
+	left: 80px;
+	}
+
+#cartItBtn {
+	position:absolute;
+	top: 320px;
+	left: 60px;
+	}
+
+#getHintBtn {
+	position:absolute;
+	top: 180px;
+	left: 60px;
+	}
+
+#pluEnterBtn {
+	position:absolute;
+	top:395px;
+	left: 165px;
+	}
+
+#pluCancelBtn {
+	position:absolute;
+	top:395px;
+	left: 12px;
+	}
+
+#infoBackBtn {
+	position:absolute;
+	top:370px;
+	left: 65px;
+}
+
+#redeemNowBtn {
+	position:absolute;
+	top:250px;
+	left: 5px;
+	}
+
+#viewRecipeBtn {
+	position:absolute;
+	top:250px;
+	left: 160px;
+	}
+
+#emailBtn {
+	margin:16px 10px 0 30px;
+	display:inline-block;
+	}
+
+#submitEmail {
+	position:absolute;
+	top:200px;
+	left: 165px;
+	}
+
+#cancelEmailBtn {
+	position:absolute;
+	top:200px;
+	left: 20px;
+	}
+
+#redeemLaterBtn {
+	position:absolute;
+	top:375px;
+	left: 55px;
+	}
+
+#redeemNow2Btn {
+	position:absolute;
+	top:275px;
+	left: 85px;
+	}
+
+#redeemDoneBtn {
+	position:absolute;
+	top:320px;
+	left: 85px;
+	}
+
+#redeemIcon {
+    width:159px;
+    height:184px;
+    margin:50px 0 10px 76px;
+    }
+
+#cashierMsg {
+    font-family: "domCasual";
+    font-size:20px;
+    text-align:center;
+    width:300px;
+}
+	
+	
+#title_ingredients {
+	position:absolute;
+	top:16px;
+	left: 48px;
+	}
+
+#title_recipe1 {
+	position:absolute;
+	top:16px;
+	left: 90px;
+	}
+
+#recipe .headerTitle,
+#fullRecipe .headerTitle {
+	margin:16px 90px 0;
+	}
+
+#recipe .subheaderTitle,
+#fullRecipe .subheaderTitle {
+	margin:16px 10px 0;
+	}
+
+#directionsHidden {
+	font-family: "postino";
+	font-size:10pt;
+	margin:10px 0 0 20px;
+	width:290px;
+	}
+
+#jqt ul,
+#jqt ul li {
+	background-color:transparent;
+	background-image:none;
+	color:#000;
+	text-shadow:none;
+	border:none;
+	font-family: "postino";
+	font-size:13pt;
+	}
+
+#jqt ul li a.active {
+	background-color:transparent;
+	}
+	
+#scrollWrapper,
+#recipeScrollWrapper {
+	height:480px; 
+	}
+
+#recipeList,
+#fullRecipeTxt {
+	height:auto;
+	}	
+
+#recipe ul {
+/*	margin-top:70px;*/
+	}
+
+#recipe ul li,
+#fullRecipe ul li {
+    clear:both;
+}
+
+
+#recipe ul span.amount,
+#fullRecipe ul span.amount{
+	display:inline-block;
+	width:100px;
+    overflow:hidden;
+   /* height:1.5em;*/
+	}
+
+#recipe ul span.food,
+#fullRecipe ul span.food{
+    display:inline-block;
+	width:150px;
+	vertical-align:top;
+	background-image:url(../img/dot.png);
+	background-position:top left;
+	background-repeat:no-repeat;
+	-webkit-background-size: 21px 20px;
+	padding:5px 0 5px 5px;
+	}
+
+#fullRecipe ul span.amount{width:110px;}
+#fullRecipe ul span.food{width:140px;}
+
+#recipe ul img.clueBtn  {
+	display:inline-block;
+	vertical-align:middle;
+	}
+
+#recipe ul img.clueBtn {
+	width: 155px;
+	height: 50px;
+    position:relative;
+    left:10px;
+	}
+
+#recipe ul li.unsolved {
+	padding:0 10px;
+	}
+
+
+#recipe ul li.solved,
+#fullRecipe ul li.solved{
+	padding:10px 10px 0 10px;
+	}
+
+#clueArea {
+	text-align:center;
+	width:320px;
+	position:absolute;
+	top:60px;
+	height:325px;
+	}
+
+
+#pluField {
+	background-image:url(../img/form_field_bg.png);
+	background-repeat:no-repeat;
+	background-position:top left;
+	-webkit-background-size: 273px 80px;
+	height:80px;
+	width:273px;
+	position:absolute;
+	top:110px;
+	left:20px;
+	 font-family: "postino";
+	 font-size:40pt;
+	 padding:10px;
+	 text-align:center;
+	}
+
+#pluBtns {
+	width:280px;
+	position:absolute;
+	top:205px;
+	left:22px;
+	}
+
+#pluBtns img {
+	float:left;
+	width:90px; 
+	height:45px;
+	}
+
+#clueArea img {
+	width:320px;
+	}
+
+#clueFeedback {
+    /*position:absolute;
+	top:150px;*/
+	width:320px;
+	text-align:center;
+	font-size:55px;
+	font-family: "domCasual";
+}
+
+#successMsg {
+	position:absolute;
+	top:100px;
+	width:320px;
+	text-align:center;
+	font-size:22px;
+	font-family: "postino";
+	}
+
+#fullRecipeTxt {
+	width:300px;
+	padding:0 10px;
+	font-family: "domCasual";
+	margin-top:20px;
+}
+
+#email form {
+	position:absolute;
+	top:125px;
+	left:5px;
+	background-image:url(../img/form_email_bg.png);
+	-webkit-background-size: 310px 50px;
+	width:310px;
+	height: 50px;
+	}
+
+#email form input{
+	width:280px;
+	margin:15px 0 0 15px;
+	border:none;
+	font-family: "domCasual";
+	font-size:20px;
+	}
+	
+
+.redeemStep2 {
+	display:none;
+	}
+
+#redeemCode {
+	position:absolute;
+	top:190px;
+	left:30px;
+	text-align:center;
+	font-size:30px;
+	font-family: "postino";
+	width:250px;
+	}
+	
+	
+	
+	
+	
+	

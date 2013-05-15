@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title></title>
+  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+	<meta charset="utf-8">
+
+
+	<!-- iPad/iPhone specific css below, add after your main css >
+	<link rel="stylesheet" media="only screen and (max-device-width: 1024px)" href="ipad.css" type="text/css" />		
+	<link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="iphone.css" type="text/css" />		
+	-->
+	<!-- If your application is targeting iOS BEFORE 4.0 you MUST put json2.js from http://www.JSON.org/json2.js into your www directory and include it here -->
+	<script type="text/javascript" charset="utf-8" src="js/phonegap-1.4.1.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/barcodescanner.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/getem.js"></script>
+    <script type="text/javascript">
+
+
+	// If you want to prevent dragging, uncomment this section
+	/*
+	function preventBehavior(e) 
+	{ 
+      e.preventDefault(); 
+    };
+	document.addEventListener("touchmove", preventBehavior, false);
+	*/
+	
+	/* If you are supporting your own protocol, the var invokeString will contain any arguments to the app launch.
+	see http://iphonedevelopertips.com/cocoa/launching-your-own-application-via-a-custom-url-scheme.html
+	for more details -jm */
+	/*
+	function handleOpenURL(url)
+	{
+		// TODO: do something with the url passed in.
+	}
+	*/
+	
+	function onBodyLoad()
+	{		
+		document.addEventListener("deviceready", onDeviceReady, false);
+	}
+	
+	/* When this function is called, PhoneGap has been initialized and is ready to roll */
+	/* If you are supporting your own protocol, the var invokeString will contain any arguments to the app launch.
+	see http://iphonedevelopertips.com/cocoa/launching-your-own-application-via-a-custom-url-scheme.html
+	for more details -jm */
+	function onDeviceReady()
+	{
+		// do your thing!
+		navigator.notification.alert("PhoneGap is working")
+	}
+
+<<<<<<< .mine
+=======
+
+
+</script>
+
+
+
+</head>
+
+<body>
+<div id="jqt">
+
+ 	<div id="welcome" class="current screen"> <!--------------------------- WELCOME SCREEN -->
+        <a href="#selectReward" id="playBtn"><img src="img/btn_getem.png" width="188" height="98" /></a>
+    </div>
+    <div id="selectReward" class="screen"> <!------------------------------ SELECT REWARD SCREEN -->
+       	<a href="#selectProtein"  id="donateBtn"><img src="img/btn_donate.png"  width="150" height="200"/></a>
+       	<a href="#selectProtein" id="couponBtn"><img src="img/btn_coupon.png"  width="150" height="200"/></a>
+    </div>
+    <div id="selectProtein" class="screen"> <!----------------------------- SELECT PROTEIN SCREEN -->
+        <a href="#directions" id="meatBtn"><img src="img/btn_meat.png"  width="150" height="180"/></a>
+        <a href="#directions" id="veggieBtn"><img src="img/btn_veggie.png"  width="150" height="180"/></a>
+    </div>
+    <div id="directions" class="screen"> <!-------------------------------- DIRECTIONS SCREEN -->
+       <a href="#recipe" id="startBtn"><img src="img/btn_getem.png" width="188" height="98" /></a>
+    </div>
+     <div id="recipe" class="screen"> <!----------------------------------- RECIPE SCREEN -->
+      <ul>
+      	<li class="clueItem unsolved">
+        	<span class="amount">1 cup</span> 
+        	<a href="#clue" class="clueBtn" id="clue1"><img src="img/btn_clue.png" /></a>
+        </li>
+        <li class="clueItem unsolved">
+        	<span class="amount">1/2 tsp</span> 
+            <a href="#clue" class="clueBtn" id="clue2"><img src="img/btn_clue.png" /></a>
+        </li>
+        <li class="clueItem solved">
+        	<span class="amount">2 cans</span> 
+            <span class="food">Monteray Jack Cheese</span>
+        </li>
+        <li class="clueItem solved">
+        	<span class="amount">10 oz</span>
+            <span class="food">Cheddar Cheese</span>
+        </li>
+      </ul>
+     
+    </div>
+    <div id="clue" class="screen"> <!-------------------------------------- CLUE SCREEN -->
+    	<div id="clueArea"><img src="img/clue_placeholder.png" width="255" height="223"></div>
+       <a href="#recipe" id="notNowBtn"><img src="img/btn_notNow.png" width="142" height="75" /></a>
+       <a href="#selectSolve" id="solveBtn"><img src="img/btn_solve.png" width="145" height="75" /></a>
+      
+    </div>
+    <div id="selectSolve" class="screen"> <!------------------------------- SOLVE SCREEN -->
+       <a href="#solveScan" id="solveScanBtn"><img src="img/btn_scan.png" width="145" height="123" /></a>
+       <a href="#solvePlu" id="solvePluBtn"><img src="img/btn_plu.png" width="145" height="123" /></a>
+       <a href="#clue" id="solveCancelBtn"><img src="img/btn_cancel.png" width="146" height="79" /></a>
+    </div>
+    <div id="solveScan" class="screen"> <!--------------------------------- SCAN SOLVE SCREEN -->
+       <a href="#clueSuccess" id="correcBtn">right</a>
+       <a href="#clueFail" id="wrongBtn">wrong</a>
+        <a href="#selectSolve" id="scanCancelBtn" ><img src="img/btn_cancel.png" width="146" height="79" /></a>
+    </div>
+  	  <div id="solvePlu" class="screen"> <!---------------------------------- PLU SOLVE SCREEN -->
+           <a href="#clueSuccess" id="correcBtn">right</a>
+           <a href="#clueFail" id="wrongBtn">wrong</a>
+           <div id="pluField"></div>
+           <div id="pluBtns">
+           <img src="img/btn_plu1.png" class="pluNumBtn" id="plu-1"  />
+           <img src="img/btn_plu2.png" class="pluNumBtn" id="plu-2"  />
+           <img src="img/btn_plu3.png" class="pluNumBtn" id="plu-3" />
+           <img src="img/btn_plu4.png" class="pluNumBtn" id="plu-4" />
+           <img src="img/btn_plu5.png" class="pluNumBtn" id="plu-5" />
+           <img src="img/btn_plu6.png" class="pluNumBtn" id="plu-6" />
+           <img src="img/btn_plu7.png" class="pluNumBtn" id="plu-7" />
+           <img src="img/btn_plu8.png" class="pluNumBtn" id="plu-8" />
+           <img src="img/btn_plu9.png" class="pluNumBtn" id="plu-9" />
+           <a href="#selectSolve" id="pluCancelBtn"><img src="img/btn_pluCancel.png"  /></a> 
+           <img src="img/btn_plu0.png" class="pluNumBtn" id="plu-0" />
+           <img src="img/btn_pluDelete.png"id="pluDeleteBtn" />
+       </div>
+       <a href="#clueSuccess" id="pluEnterBtn"><img src="img/btn_pluEnter.png" width="145" height="75" /></a>
+       
+    </div>
+     <div id="clueSuccess" class="screen"> <!------------------------------ CLUE SUCCESS SCREEN -->
+       <a href="#recipe" id="cartItBtn"><img src="img/btn_cartIt.png" width="185" height="97" /></a>
+    </div>
+    <div id="clueFail" class="screen"> <!---------------------------------- CLUE SUCCESS SCREEN -->
+       <a href="#clue" id="getHintBtn"><img src="img/btn_getHint.png" width="185" height="97" /></a>
+    </div>
+    <div id="reward" class="screen"> <!------------------------------------ REWARD SCREEN -->
+       reward screen
+       <a href="#recipe">view complete recipe</a>
+    </div>
+>>>>>>> .r1535
+    
+    </script>
+  </head>
+  <body onload="onBodyLoad()">
+      <a href="javascript:scan_barcode();">Scan Here</a>
+      <div id="scan_id"></div>
+  </body>
+</html>

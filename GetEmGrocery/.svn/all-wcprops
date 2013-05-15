@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/ig/!svn/ver/1644/GetEmGrocery/GetEmGrocery/GetEmGrocery
+END
+GetEmGrocery-Info.plist
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/ig/!svn/ver/1625/GetEmGrocery/GetEmGrocery/GetEmGrocery/GetEmGrocery-Info.plist
+END
+main.m
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/ig/!svn/ver/1525/GetEmGrocery/GetEmGrocery/GetEmGrocery/main.m
+END
+ChildBrowserViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/ig/!svn/ver/1639/GetEmGrocery/GetEmGrocery/GetEmGrocery/ChildBrowserViewController.m
+END
+ChildBrowserCommand.m
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/ig/!svn/ver/1639/GetEmGrocery/GetEmGrocery/GetEmGrocery/ChildBrowserCommand.m
+END
+EmailComposer.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/ig/!svn/ver/1616/GetEmGrocery/GetEmGrocery/GetEmGrocery/EmailComposer.h
+END
+EmailComposer.m
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/ig/!svn/ver/1616/GetEmGrocery/GetEmGrocery/GetEmGrocery/EmailComposer.m
+END
+PhoneGap.plist
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/ig/!svn/ver/1644/GetEmGrocery/GetEmGrocery/GetEmGrocery/PhoneGap.plist
+END
+GetEmGrocery-Prefix.pch
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/ig/!svn/ver/1525/GetEmGrocery/GetEmGrocery/GetEmGrocery/GetEmGrocery-Prefix.pch
+END
+gg_scan_2_sm.png
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/ig/!svn/ver/1626/GetEmGrocery/GetEmGrocery/GetEmGrocery/gg_scan_2_sm.png
+END
+GetEmGrocery.entitlements
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/ig/!svn/ver/1627/GetEmGrocery/GetEmGrocery/GetEmGrocery/GetEmGrocery.entitlements
+END
+ChildBrowserViewController.xib
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/ig/!svn/ver/1638/GetEmGrocery/GetEmGrocery/GetEmGrocery/ChildBrowserViewController.xib
+END
+PGBarcodeScanner.mm
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/ig/!svn/ver/1525/GetEmGrocery/GetEmGrocery/GetEmGrocery/PGBarcodeScanner.mm
+END
+zxing-all-in-one.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/ig/!svn/ver/1525/GetEmGrocery/GetEmGrocery/GetEmGrocery/zxing-all-in-one.cpp
+END
+btn_cancel_sm.png
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/ig/!svn/ver/1565/GetEmGrocery/GetEmGrocery/GetEmGrocery/btn_cancel_sm.png
+END
+ChildBrowserCommand.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/ig/!svn/ver/1639/GetEmGrocery/GetEmGrocery/GetEmGrocery/ChildBrowserCommand.h
+END
+ChildBrowserViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/ig/!svn/ver/1639/GetEmGrocery/GetEmGrocery/GetEmGrocery/ChildBrowserViewController.h
+END
+zxing-all-in-one.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/ig/!svn/ver/1525/GetEmGrocery/GetEmGrocery/GetEmGrocery/zxing-all-in-one.h
+END

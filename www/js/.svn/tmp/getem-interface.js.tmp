@@ -1,0 +1,102 @@
+
+$(document).ready(function() {
+	
+	// set starting varibales -- needs to add logic to skip this if already played once
+		localStorage.setItem("reward", ""); 
+		localStorage.setItem("protein", "");
+		localStorage.setItem("totalClues", "7");
+		localStorage.setItem("solved", "0");
+		
+		
+		
+	// --------------------- CHOOSE REWARD ----------------------- //
+		$("#donateBtn").click(function(){
+            localStorage.setItem("reward", "donate");
+        });
+		
+		$("#couponBtn").click(function(){
+            localStorage.setItem("reward", "coupon");
+        });
+		
+		
+		
+  // --------------------- CHOOSE PROTEIN ----------------------- //
+		$("#meatBtn").click(function(){
+            localStorage.setItem("protein", "meat");
+			//alert(localStorage.getItem("protein") +" "+localStorage.getItem("reward") );
+        });
+		
+		$("#veggieBtn").click(function(){
+            localStorage.setItem("protein", "veggie");
+			//alert(localStorage.getItem("protein"));
+        });
+		
+	
+  // --------------------- VIEW CLUES  ----------------------- //
+  
+  
+  		$('#clue').click(function(){
+           
+        })
+
+		$("#solveBtn").click(function(){
+		//	localStorage.setItem("clueTries", "1");
+        })
+			
+   // --------------------- REVERSE BUTTONS  ----------------------- //	
+   
+   		$("#notNowBtn").click(function(){
+			jQT.goBack('#recipe');
+		});
+		
+		
+		$("#solveCancelBtn").click(function(){
+			jQT.goBack('#clue');
+		});
+		
+		$("#scanCancelBtn, #pluCancelBtn").click(function(){
+			jQT.goBack('#selectSolve');
+		});
+	
+		
+		
+		
+		
+  // --------------------- ENTER PLU NUMBER  ----------------------- //
+		
+		
+		$(".pluNumBtn").click(function(){
+			
+			//get total number of characters from #pluField
+			var charTotal = $("#pluField").text().length;
+			// if there are less than 4 characters in the #pluField
+			if(charTotal < 4) {
+			   // get id from btn
+				 var numBtn = $(this).attr("id");
+			   // strip off plu-
+				 numBtn = numBtn.replace('plu-','');
+			   // add that number to #pluField
+				$("#pluField").append(numBtn);
+			}
+        });
+		
+		$("#pluDeleteBtn").click(function(){
+			// get what's currenly in the #pluField
+			var pluNum = $("#pluField").text();
+			// slice off the last number
+			pluNum = pluNum.slice(0,-1);
+			// display the new number
+			$("#pluField").html(pluNum);
+		});
+		
+		$("#pluEnterBtn").click(function(){
+			$("#pluField").html("");
+		});
+
+		$("#pluCancelBtn").click(function(){
+			
+			$("#pluField").html("");
+		});
+
+// ----- end on ready
+});
